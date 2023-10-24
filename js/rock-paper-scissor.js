@@ -2,14 +2,15 @@
 //          1= "paper",
 //          2= "scissor"
 
-//Computer AI
+
 const choices = { 2: "Scissor", 1: "Paper", 3: "Rock" };
+
+//computer choice
 function getComputerChoice() {
 	return Math.floor(Math.random() * 3 + 1);
 }
 
-//playerVSAI
-
+//player VS computer
 function getResultMessage(playerChoice, compChoice) {
 	let result = getResult(playerChoice, compChoice);
 	switch (result) {
