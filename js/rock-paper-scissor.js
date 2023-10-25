@@ -37,10 +37,20 @@ function getResultMessage(result, playerChoice, compChoice) {
 	}
 }
 
+//get final winner message
+function getFinalWinner(playerCount){
+	if(playerCount>(5-playerCount)){
+		return "You are The True Winner!";
+	}
+	else
+		return "Better Luck Next Time";
+}
+
 function game(){
 	let playerPick=1;
 	let compPick=1;
 	let playerWinCount = 0;
+	let compWinCount
 	let result = 0;
 	for (let i =0; i < 5; i ++){
 		console.log(`This is game ${i+1}`);
@@ -50,7 +60,8 @@ function game(){
 		playerWinCount += result>0?1:0;
 		console.log(getResultMessage(result, playerPick,compPick));
 	}
-
+	console.log(`Player Win: ${playerWinCount}`+" "+`Computer Win: ${5-playerWinCount}`);
+	console.log(getFinalWinner(playerWinCount));
 }
 
 game();
