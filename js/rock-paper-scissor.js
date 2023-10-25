@@ -38,30 +38,47 @@ function getResultMessage(result, playerChoice, compChoice) {
 }
 
 //get final winner message
-function getFinalWinner(playerCount){
-	if(playerCount>(5-playerCount)){
+//need a draw message
+function getFinalWinner(playerCount, compCount){
+	if(playerCount>(compCount)){
 		return "You are The True Winner!";
 	}
+	else if(playerCount === (compCount))
+		return "It's a draw."
 	else
-		return "Better Luck Next Time";
+		return "LOSSER! Better Luck Next Time";
 }
 
 function game(){
 	let playerPick=1;
 	let compPick=1;
 	let playerWinCount = 0;
-	let compWinCount
+	let draw=0;
+	let compWinCount =0
 	let result = 0;
 	for (let i =0; i < 5; i ++){
 		console.log(`This is game ${i+1}`);
-		playerPick=+prompt("Your Pick?");
+		playerPick=Number(prompt("Your Pick?"));
+		if((playerPick>3||playerPick<1)|| isNaN(playerPick)){
+			console.log("You quit, loser!")
+			return;
+		}
 		compPick=getComputerChoice();
 		result = getResult(playerPick,compPick);
-		playerWinCount += result>0?1:0;
+		if(result==1){
+			playerWinCount++;
+		}
+		else if(result==0){
+			draw++;
+		}
+		else 
+			compWinCount++
 		console.log(getResultMessage(result, playerPick,compPick));
+		console.log(`Player Win: ${playerWinCount}`+" "+`Computer Win: ${compWinCount}`+" "+`Draw: ${draw}`);
 	}
-	console.log(`Player Win: ${playerWinCount}`+" "+`Computer Win: ${5-playerWinCount}`);
-	console.log(getFinalWinner(playerWinCount));
+	
+	
+	console.log(getFinalWinner(playerWinCount,compWinCount));
 }
 
 game();
