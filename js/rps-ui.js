@@ -10,17 +10,19 @@ playerChoiceDivs.forEach((choice)=>{
         const player = event.target.className;
         const comp = choices[Math.floor(Math.random()*3)];
         const winner = getWinner(player,comp);
-        winnerDiv.textContent = winner;
+        winnerDiv.textContent = winner.winner;
+        resultDiv.textContent = winner.reason;
     })
 })
 
 //0 = draw, 1 = player1, -1 = computer
 function getWinner(player,comp){
     if(player=== comp)
-        return 0;
+        return {winner:'Draw!', reason:`Both picked ${player}`};
     if(rule[player]===comp){
-        return 1;
+        return {winner:'Player!', reason:`${player} beats ${comp}`};
     }
     else    
-        return -1;
+        return {winner:'Computer!', reason:`${comp} beats ${player}`};
 }
+
