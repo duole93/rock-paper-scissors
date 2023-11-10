@@ -2,7 +2,7 @@ const rule = {'rock':'scissor', 'scissor':'paper', 'paper':'rock'};
 const choices = ['rock','paper','scissor'];
 
 const playerChoiceDivs = document.querySelectorAll('.player-choices button') 
-const winnerDiv = document.querySelector('.winner');
+const winnerDiv = document.querySelector('.result-winner');
 const resultDiv = document.querySelector('.result-msg');
 
 playerChoiceDivs.forEach((choice)=>{
