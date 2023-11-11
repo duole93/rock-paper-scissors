@@ -50,16 +50,7 @@ btnStart.addEventListener("click", () => {
 //continue
 btnContinue.addEventListener("click", () => {
     //if its not End game 
-	if (round <= ROUND_MAX) {
-        //show choices 
-		btnContinue.classList.toggle("display-none");
-		btnQuit.classList.toggle("display-none");
-		playerChoiceContainer.classList.toggle("display-none");
-		winnerDiv.textContent = `Round ${round}`;
-		msgDiv.textContent = "pick your poision";
-	} 
-    //END game
-    else if (playerWin === 3 || compWin == 3 || round > ROUND_MAX) {
+ if (playerWin === 3 || compWin === 3 || round > ROUND_MAX) {
         //Toggle BUTTON
 		btnStart.classList.toggle("display-none");
 		btnContinue.classList.toggle("display-none");
@@ -75,7 +66,16 @@ btnContinue.addEventListener("click", () => {
 		} else {
 			winnerDiv.textContent = `Draw!`;
 		}
-	}
+	}	else if (round <= ROUND_MAX) {
+        //show choices 
+		btnContinue.classList.toggle("display-none");
+		btnQuit.classList.toggle("display-none");
+		playerChoiceContainer.classList.toggle("display-none");
+		winnerDiv.textContent = `Round ${round}`;
+		msgDiv.textContent = "pick your poision";
+	} 
+    //END game
+    
 });
 
 //quit
