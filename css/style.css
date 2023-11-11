@@ -7,37 +7,66 @@ body{
     text-align: center;
     background-color: #CCE6F4;
 }
+
+button{
+    width: 150px;
+    height:100px;
+    font-size: 30px;
+    border-radius: 30px;
+    border: 5px solid #175676;
+    background-color: #CCE6F4;
+    flex: 0 1 auto;
+    transition-duration: 0.2s;
+}
+button:hover{
+    width: 200px;
+    font-size:35px;
+    background-color: #85b8cb;
+}
+
 .logo{
-    font-size: 120px;
+    font-size: 70px;
     color:#BA324F
 }
 
 .result-title{
-    font-size:70px;
+    font-size:80px;
     color: #175676;
+    display:none;
 }
 .result-winner{
-    font-size: 100px;
+    font-size: 80px;
     color: #BA324F;
+    display:none;
 }
 .result-msg{
-    font-size:50px;
+    font-size:30px;
     color: #4BA3C3;
 }
 
-.player-choices{
+.start-modes-container , .continue-container{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    display:none;
+}
+
+
+.result-container{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border:1px solid black;
+    display: none;
+}
+
+.player-choices-container{
     display: flex;
     justify-content: center;
     align-items: center;
     gap:30px;
     padding: 30px;
-}
-button{
-    width: 100px;
-    height:100px;
-    font-size: 30px;
-    border-radius: 30px;
-    border: 2px solid #175676;
-    color: #175676;
-    flex: 1 0 auto;
+    display:none;
 }
